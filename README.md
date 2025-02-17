@@ -4,6 +4,8 @@
 
 Este proyecto consiste en desarrollar un prototipo de taxímetro digital utilizando Python y Tkinter. El objetivo es modernizar el sistema de facturación de los taxis y crear un sistema que calcule las tarifas a cobrar a los clientes de manera precisa y eficiente.
 
+El archivo conocido como taximetro0.py es como empezo el proyecto antes de la implementación de la interfaz.
+
 ## 📊 Funcionalidades
 
 - **Iniciar Trayecto**: Comienza a calcular el tiempo y el costo del trayecto.
