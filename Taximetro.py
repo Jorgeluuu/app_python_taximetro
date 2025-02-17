@@ -20,8 +20,14 @@ class TaximetroApp:
         self.time_movement_label.pack()
         self.time_stop_label = tk.Label(root, text="Tiempo en parado: 0.00 segundos")
         self.time_stop_label.pack()
-        self.tarifas_label = tk.Label(root, text="Tarifas: $0.05 por segundo en movimiento, $0.02 por segundo parado")
-        self.tarifas_label.pack()
+        self.tarifas_movimiento_label = tk.Label(root, text="Introduce la tarifa por segundo en movimiento: ")
+        self.tarifas_movimiento_label.pack()
+        self.tarifas_movimiento_entry = tk.Entry(root)
+        self.tarifas_movimiento_entry.pack()
+        self.tarifas_parado_label = tk.Label(root, text="Introduce la tarifa por segundo en parado: ")
+        self.tarifas_parado_label.pack()
+        self.tarifas_parado_entry = tk.Entry(root)
+        self.tarifas_parado_entry.pack()
         self.price_label = tk.Label(root, text="Precio total a pagar: $0.00")
         self.price_label.pack()
         self.root.bind("<KeyPress>", self.on_key_press)
@@ -44,6 +50,8 @@ class TaximetroApp:
         self.price_label.config(text="Precio total a pagar: $0.00")
         self.time_movement_label.config(text="Tiempo en movimiento: 0.00 segundos")
         self.time_stop_label.config(text="Tiempo en parado: 0.00 segundos")
+        self.tarifas_movimiento_entry.config(state=tk.DISABLED)
+        self.tarifas_parado_entry.config(state=tk.DISABLED)
         print("Trayecto iniciado")
 
     def stop_trip(self):
@@ -61,20 +69,23 @@ class TaximetroApp:
         os.startfile("historial_trayectos.txt")
 
     def calculate_price(self):
-        precio_movimiento = self.tiempo_movimiento * 0.05  # Precio por segundo en movimiento
-        precio_parado = self.tiempo_parado * 0.02  # Precio por segundo parado
+        tarifa_movimiento = float(self.tarifas_movimiento_entry.get())
+        tarifa_parado = float(self.tarifas_parado_entry.get())
+        precio_movimiento = self.tiempo_movimiento * tarifa_movimiento  # Precio por segundo en movimiento
+        precio_parado = self.tiempo_parado * tarifa_parado  # Precio por segundo parado
         precio_total = precio_movimiento + precio_parado
         self.price_label.config(text=f"Precio total a pagar: ${precio_total:.2f}")
         self.time_movement_label.config(text=f"Tiempo en movimiento: {self.tiempo_movimiento:.2f} segundos")
         self.time_stop_label.config(text=f"Tiempo en parado: {self.tiempo_parado:.2f} segundos")
     
     def save_trip_history(self):
+        tarifa_movimiento = float(self.tarifas_movimiento_entry.get())
+        tarifa_parado = float(self.tarifas_parado_entry.get())
         with open("historial_trayectos.txt", "a") as file:
             file.write(f"El taxi se ha movido durante {self.tiempo_movimiento:.2f} segundos\n")
             file.write(f"El taxi ha estado detenido durante {self.tiempo_parado:.2f} segundos\n")
-            file.write(f"El precio total a pagar es de ${(self.tiempo_movimiento * 0.05) + (self.tiempo_parado * 0.02):.2f}\n")
+            file.write(f"El precio total a pagar es de ${(self.tiempo_movimiento * tarifa_movimiento) + (self.tiempo_parado * tarifa_parado):.2f}\n")
             file.write("-----\n")
-
 
     def on_key_press(self, event):
         if self.trip_started and event.keysym in ['w', 'a', 's', 'd']:
