@@ -31,7 +31,7 @@ El archivo conocido como taximetro0.py es como empezo el proyecto antes de la im
 
 ## 🚀 Uso
 
-1. Ejecuta el archivo [Taximetro.py](http://_vscodecontentref_/1):
+1. Ejecuta el archivo Taximetro.py:
     ```sh
     python Taximetro.py
     ```
