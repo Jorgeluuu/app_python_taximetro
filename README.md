@@ -26,10 +26,6 @@ Este proyecto consiste en desarrollar un prototipo de taxímetro digital utiliza
     ```sh
     cd app_python_taximetro
     ```
-3. Instala las dependencias necesarias:
-    ```sh
-    pip install -r requirements.txt
-    ```
 
 ## 🚀 Uso
 
