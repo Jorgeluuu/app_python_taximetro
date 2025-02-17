@@ -1,0 +1,12 @@
+El taxi se ha movido durante 25.27 segundos
+El taxi ha estado detenido durante 5.73 segundos
+El precio total a pagar es de $1.38
+-----
+El taxi se ha movido durante 13.95 segundos
+El taxi ha estado detenido durante 2.83 segundos
+El precio total a pagar es de $0.75
+-----
+El taxi se ha movido durante 6.65 segundos
+El taxi ha estado detenido durante 5.55 segundos
+El precio total a pagar es de $0.44
+-----
