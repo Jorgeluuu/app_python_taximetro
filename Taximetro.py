@@ -7,7 +7,7 @@ class TaximetroApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Taximetro")
-        self.canvas = tk.Canvas(root, width=800, height=600)
+        self.canvas = tk.Canvas(root, width=800, height=500)
         self.canvas.pack()
         self.car = self.canvas.create_rectangle(390, 290, 410, 310, fill="blue")
         self.start_button = tk.Button(root, text="Iniciar Trayecto", command=self.start_trip)
