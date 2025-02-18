@@ -38,7 +38,7 @@ El archivo conocido como taximetro0.py es como empezo el proyecto antes de la im
 2. Usa los botones en la interfaz para iniciar y detener el trayecto.
 3. Usa las teclas `W`, `A`, `S`, `D` para simular el movimiento del taxi.
 4. Consulta el historial de trayectos haciendo clic en el botón "Historial de Trayectos".
-5. Caja para introducir las tarifas que se van a utilizar en el trayecto ("Post Entrega")
+5. Caja para introducir las tarifas que se van a utilizar en el trayecto
 
 ## 📄 Licencia
 
